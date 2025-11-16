@@ -1,124 +1,153 @@
-# Overrides
+export default function Home() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1 style={{ fontSize: "42px", fontWeight: "bold" }}>Littleland</h1>
+      <p style={{ fontSize: "18px", marginTop: "10px", lineHeight: "1.6" }}>
+        Welcome to Littleland — a simple, clean, and future-ready platform built for
+        young learners and parents. Designed with clarity and trust, Littleland
+        focuses on easy learning, creativity, and a safe digital space.
+      </p>
 
-Linguist supports a number of different custom override strategies for language definitions and file paths.
+      <h2 style={{ marginTop: "40px", fontSize: "28px" }}>Our Mission</h2>
+      <p style={{ fontSize: "16px", lineHeight: "1.6" }}>
+        Making education simple and enjoyable. Helping students grow with discipline,
+        confidence, and creativity.
+      </p>
 
-## Using gitattributes
+      <h2 style={{ marginTop: "40px", fontSize: "28px" }}>Contact Us</h2>
+      <p style={{ fontSize: "16px", lineHeight: "1.8" }}>
+        Phone: <strong>8638895859</strong><br />
+        Email: <strong>littleems@gmail.com</strong><br />
+      </p>
+    </main>   export default function Contact() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1 style={{ fontSize: "36px", fontWeight: "bold" }}>Contact Littleland</h1>
+      <p style={{ fontSize: "18px", marginTop: "10px", lineHeight: "1.6" }}>
+        We’re here to answer questions, support parents, and guide young learners.
+      </p>
 
-Add [a `.gitattributes` file](https://git-scm.com/docs/gitattributes) to your project and use standard git-style path matchers for the files you want to override using the `linguist-documentation`, `linguist-language`, `linguist-vendored`, `linguist-generated`  and `linguist-detectable` attributes.
-`.gitattributes` will be used to determine language statistics and will be used to syntax highlight files.
-You can also manually set syntax highlighting using [Vim or Emacs modelines](#using-emacs-or-vim-modelines).
+      <h2 style={{ marginTop: "30px", fontSize: "24px" }}>Get in Touch</h2>
+      <p style={{ fontSize: "16px", lineHeight: "1.8" }}>
+        📞 Phone: <strong>8638895859</strong><br />
+        📧 Email: <strong>littleems@gmail.com</strong>
+      </p>
+    </main>
+  );
+}
+git add .
+git commit -m "Updated homepage and added contact details"
+git push
+import Link from 'next/link';
 
-When testing with a local installation of Linguist, **take note that the added attributes will _not_ take effect until the `.gitattributes` file is committed to your repository.**
+export default function Navbar() {
+  return (
+    <nav style={{ 
+      padding: "18px 30px", 
+      display: "flex", 
+      justifyContent: "space-between",
+      backgroundColor: "#1a237e",
+      color: "white",
+      fontFamily: "Arial"
+    }}>
+      
+      <div style={{ fontSize: "24px", fontWeight: "bold" }}>
+        Littleland
+      </div>
 
-File and folder paths inside `.gitattributes` are calculated relative to the position of the `.gitattributes` file.
+      <div style={{ display: "flex", gap: "25px", fontSize: "16px" }}>
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/admission">Admission</Link>
+        <Link href="/results">Results</Link>
+        <Link href="/academics">Academics</Link>
+        <Link href="/facilities">Facilities</Link>
+        <Link href="/notices">Notices</Link>
+        <Link href="/contact">Contact</Link>
+      </div>
+    </nav>
+  );
+}
+import '../styles/globals.css';
+import Navbar from '../components/Navbar';
 
-```gitattributes
-# Example of a `.gitattributes` file which reclassifies `.rb` files as Java:
-*.rb linguist-language=Java
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Navbar />
+      <Component {...pageProps} />
+    </>
+  );
+}
+export default function Admission() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1 style={{ fontSize: "36px", fontWeight: "bold" }}>Admissions</h1>
 
-# Replace any whitespace in the language name with hyphens:
-*.glyphs linguist-language=OpenStep-Property-List
+      <p style={{ fontSize: "18px", marginTop: "20px", lineHeight: "1.8" }}>
+        Littleland welcomes new students with a simple and transparent admission process.
+      </p>
 
-# Language names are case-insensitive and may be specified using an alias.
-# So, the following three lines are all functionally equivalent:
-*.es linguist-language=js
-*.es linguist-language=JS
-*.es linguist-language=JAVASCRIPT
-```
+      <h2 style={{ marginTop: "30px", fontSize: "24px" }}>How to Apply</h2>
+      <ul style={{ fontSize: "16px", lineHeight: "1.8" }}>
+        <li>Fill the online admission form.</li>
+        <li>Submit birth certificate and photo.</li>
+        <li>Attend interaction/assessment session.</li>
+        <li>Pay registration fees after selection.</li>
+      </ul>
 
-### Summary
+      <h2 style={{ marginTop: "30px", fontSize: "24px" }}>Contact</h2>
+      <p>
+        Phone: <strong>8638895859</strong><br />
+        Email: <strong>littleems@gmail.com</strong>
+      </p>
+    </main>
+  );
+}
+export default function Results() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1 style={{ fontSize: "36px", fontWeight: "bold" }}>Results</h1>
 
-<!------------------------------------------------------------------------------------------------------------------------------------------->
- | Git attribute                                  | Defined in            | Effect on file                                                  |
- |:-----------------------------------------------|:----------------------|:----------------------------------------------------------------|
- | `linguist-detectable`                          | [`languages.yml`]     | Included in stats, even if language's type is `data` or `prose` |
- | `linguist-documentation`                       | [`documentation.yml`] | Excluded from stats                                             |
- | `linguist-generated`                           | [`generated.rb`]      | Excluded from stats, hidden in diffs                            |
- | `linguist-language`=<var><ins>name</ins></var> | [`languages.yml`]     | Highlighted and classified as <var><ins>name</ins></var>        |
- | `linguist-vendored`                            | [`vendor.yml`]        | Excluded from stats                                             |
-<!------------------------------------------------------------------------------------------------------------------------------------------->
+      <p style={{ fontSize: "18px", marginTop: "20px", lineHeight: "1.8" }}>
+        All academic results, entrance test results, and school performance updates will be posted here.
+      </p>
 
-### Detectable
+      <h2 style={{ marginTop: "30px", fontSize: "24px" }}>Latest Results</h2>
+      <ul style={{ fontSize: "16px", lineHeight: "1.8" }}>
+        <li>No results uploaded yet.</li>
+      </ul>
+    </main>
+  );
+}
+export default function Academics() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1 style={{ fontSize: "36px", fontWeight: "bold" }}>Academics</h1>
 
-By default only languages of type `programming` or `markup` in [`languages.yml`] are included in the language statistics.
-Languages of a different type in [`languages.yml`] are not "detectable" by default, causing them not to be included in the language statistics,
-but can be made detectable as shown below.  Languages that are not yet mentioned in [`languages.yml`] will not be included in the language
-statistics, even if you specify something like `*.mycola linguist-language=MyCoolLang linguist-detectable` in the `.gitattributes` file.
+      <p style={{ fontSize: "18px", marginTop: "20px", lineHeight: "1.8" }}>
+        Littleland follows a balanced academic curriculum focusing on understanding,
+        discipline, and curiosity. Subjects include English, Mathematics, Science,
+        Social Science, Computer Studies, and Value Education.
+      </p>
+    </main>
+  );
+}
+export default function Facilities() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1 style={{ fontSize: "36px", fontWeight: "bold" }}>Facilities</h1>
 
-Use the `linguist-detectable` attribute to mark or unmark paths as detectable:
+      <p style={{ fontSize: "16px", marginTop: "15px", lineHeight: "1.8" }}>
+        • Smart classrooms  
+        • Library  
+        • Safe campus  
+        • Play area  
+        • Activity-based learning  
+      </p>
+    </main>
+  );
+}
 
-```gitattributes
-*.kicad_pcb linguist-detectable
-*.sch linguist-detectable
-tools/export_bom.py -linguist-detectable
-```
-
-### Documentation
-
-Just like vendored files, Linguist excludes documentation files from your project's language stats.
-[`documentation.yml`] lists common documentation paths and excludes them from the language statistics for your repository.
-
-Use the `linguist-documentation` attribute to mark or unmark paths as documentation:
-
-```gitattributes
-# Apply override to all files in the directory
-project-docs/* linguist-documentation
-# Apply override to a specific file
-docs/formatter.rb -linguist-documentation
-# Apply override to all files and directories in the directory
-ano-dir/** linguist-documentation
-```
-
-### Generated code
-
-Not all plain text files are true source files.
-Generated files like minified JavaScript and compiled CoffeeScript can be detected and excluded from language stats.
-As an added bonus, unlike vendored and documentation files, these files are suppressed in diffs.
-[`generated.rb`] lists common generated paths and excludes them from the language statistics of your repository.
-
-Use the `linguist-generated` attribute to mark or unmark paths as generated.
-
-```gitattributes
-Api.elm linguist-generated
-```
-
-### Vendored code
-
-Checking code you didn't write, such as JavaScript libraries, into your git repo is a common practice, but this often inflates your project's language stats and may even cause your project to be labeled as another language.
-By default, Linguist treats all of the paths defined in [`vendor.yml`] as vendored and therefore doesn't include them in the language statistics for a repository.
-
-Use the `linguist-vendored` attribute to vendor or un-vendor paths:
-
-```gitattributes
-# Apply override to all files in the directory
-special-vendored-path/* linguist-vendored
-# Apply override to a specific file
-jquery.js -linguist-vendored
-# Apply override to all files and directories in the directory
-ano-dir/** linguist-vendored
-```
-
-## Using Emacs or Vim modelines
-
-If you do not want to use `.gitattributes` to override the syntax highlighting used on GitHub.com, you can use Vim or Emacs style modelines to set the language for a single file.
-Modelines can be placed anywhere within a file and are respected when determining how to syntax-highlight a file on GitHub.com
-
-### Vim
-```
-# Some examples of various styles:
-vim: syntax=java
-vim: set syntax=ruby:
-vim: set filetype=prolog:
-vim: set ft=cpp:
-```
-
-### Emacs
-```
--*- mode: php; -*-
--*- c++ -*-
-```
-
-[`documentation.yml`]: /lib/linguist/documentation.yml
-[`languages.yml`]:     /lib/linguist/languages.yml
-[`generated.rb`]:      /lib/linguist/generated.rb
-[`vendor.yml`]:        /lib/linguist/vendor.yml
+  );
+}
